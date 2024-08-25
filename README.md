@@ -1,6 +1,6 @@
 # A Simple Todo List App powered with LocalStack and Mongo
 
-A Todo List application that runs non-containerised frontend and backend. It connects to LocalStack and Mongo running as Docker container
+A Todo List application that allows developers to upload images to S3-emulated LocalStack and add task lists to Mongo.
 
 ## Tech Stack
 
