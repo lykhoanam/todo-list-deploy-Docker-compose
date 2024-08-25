@@ -54,7 +54,7 @@ It should show the following result:
 
 ```
 make_bucket: mysamplebucket
-``
+```
 
 ## Bring up Backend
 
