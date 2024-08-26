@@ -21,14 +21,27 @@ This project contains the following components:
 - **/backend** - This directory contains the Node.js application that handles the server-side logic and interacts with the database. This directory contains configuration settings for uploading images to LocalStack (emulated AWS S3). The uploadConfig.js file is responsible for configuring the S3 client to connect to the LocalStack S3 endpoint. This allows the backend application to store and retrieve images associated with the Todo List items.
 - **/frontend** - The frontend directory contains the React application that handles the user interface and interacts with the backend. 
   
-## Clone the repository
+## Development
+
+1. Clone the repository
 
 ```
-git clone https://github.com/ajeetraina/todo-container-supported
-cd todo-container-supported
+git clone https://github.com/ajeetraina/todo-list-localstack-docker
 ```
+
+2. Navigate into the project.
+
+```
+cd todo-list-localstack-docker
+```
+
+To launch this project, you have two options - run the app natively (without containers) or run everything in containers.
+
+## Option one - Run the app natively
 
 ## Bring up LocalStack and Mongo containers
+
+To run the app natively, you will need to run LocalStack and Mongo using Docker Compose while run frontend and backend locally.
 
 ```
 docker compose up -d
@@ -147,3 +160,9 @@ todos> db.todos.countDocuments()
 3
 todos> 
 ```
+
+## Option two - Run everything in containers
+
+To run everything out of containers, you can leverage the Docker Compose configuration in the project.
+
+<tbd>
