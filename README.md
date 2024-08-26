@@ -1,6 +1,9 @@
-# A Simple Todo List App powered with LocalStack and Mongo
+# How to build and test Cloud applications with LocalStack and Docker
 
-A Todo List application that allows developers to upload images to S3-emulated LocalStack and add task lists to Mongo.
+This repo contains the sample application for [Building and testing Cloud applications with LocalStack and Docker guide on Docker Docs](https://github.com/ajeetraina/todo-container-supported).
+This simple to-do List application allows developers to upload images to S3-emulated LocalStack and add task lists to the local MongoDB database.
+
+Notice: This sample repo is intended to support the guide mentioned above. As such, the application code is purposely kept simple to keep the focus on the guide's content and should not be considered production ready.
 
 ## Tech Stack
 
@@ -12,6 +15,11 @@ A Todo List application that allows developers to upload images to S3-emulated L
 - Database: Mongo(running locally for storing tasks)
 - Object Storage: Localstack (for emulating S3 and storing images locally for testing purposes)
 
+## Project Structure
+
+This project contains the following components:
+- **/backend** - This directory contains the Node.js application that handles the server-side logic and interacts with the database. This directory contains configuration settings for uploading images to LocalStack (emulated AWS S3). The uploadConfig.js file is responsible for configuring the S3 client to connect to the LocalStack S3 endpoint. This allows the backend application to store and retrieve images associated with the Todo List items.
+- **/frontend** - The frontend directory contains the React application that handles the user interface and interacts with the backend. 
   
 ## Clone the repository
 
