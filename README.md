@@ -1,6 +1,6 @@
 # How to build and test Cloud applications with LocalStack and Docker
 
-This repo contains the sample application for [Building and testing Cloud applications with LocalStack and Docker guide on Docker Docs](https://github.com/ajeetraina/todo-container-supported).
+This repo contains the sample application for [Building and testing Cloud applications with LocalStack and Docker guide on Docker Docs](https://github.com/ajeetraina/todo-list-localstack-docker).
 This simple to-do List application allows developers to upload images to S3-emulated LocalStack and add task lists to the local MongoDB database.
 
 Notice: This sample repo is intended to support the guide mentioned above. As such, the application code is purposely kept simple to keep the focus on the guide's content and should not be considered production ready.
