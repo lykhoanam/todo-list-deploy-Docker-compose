@@ -55,9 +55,4 @@ services:
 volumes:
   mongo-data:
 
-profiles:
-  dev:
-    # In development, React and Node.js will be run natively, so only MongoDB and LocalStack will be containerized.
 
-  prod:
-    # In production, all services including React and Node.js will be containerized.
