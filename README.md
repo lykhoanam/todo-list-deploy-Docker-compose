@@ -14,7 +14,7 @@ Notice: This sample repo is intended to support the guide mentioned above. As su
 - Frontend: React, Material UI.
 - Backend: Node.js, Express
 - Database: Mongo(running locally for storing tasks)
-- Object Storage: Localstack (for emulating S3 and storing images locally for testing purposes)
+- Object Storage: LocalStack (for emulating S3 and storing images locally for testing purposes)
 
 ## Project Structure
 
@@ -60,7 +60,7 @@ docker compose up -d
 <img width="1307" alt="image" src="https://github.com/user-attachments/assets/d643f92c-c7e3-4ebe-a3c1-9288deb14083">
 
 
-## Verify if Localstack is up and running
+## Verify if LocalStack is up and running
 
 <img width="762" alt="image" src="https://github.com/user-attachments/assets/ac832aeb-a9e8-4ae5-a2ca-8c538259023e">
 
