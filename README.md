@@ -7,7 +7,8 @@ Notice: This sample repo is intended to support the guide mentioned above. As su
 
 ## Tech Stack
 
-![image](https://github.com/user-attachments/assets/b6d14d71-6220-480c-861a-fd2ca77dc712)
+<img width="827" alt="image" src="https://github.com/user-attachments/assets/b3a7ac49-eec5-4f6c-ac6a-eff19647b667">
+
 
 
 - Frontend: React, Material UI.
