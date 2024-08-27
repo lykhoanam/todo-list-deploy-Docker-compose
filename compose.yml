@@ -6,6 +6,9 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    profiles:
+      - dev
+      - prod
 
   localstack:
     image: localstack/localstack
@@ -17,6 +20,44 @@ services:
       - GATEWAY_LISTEN=0.0.0.0:4566
     volumes:
       - "./localstack:/docker-entrypoint-initaws.d"
+    profiles:
+      - dev
+      - prod
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/your_db_name
+      - AWS_ENDPOINT=http://localstack:4566
+    depends_on:
+      - mongo
+      - localstack
+    profiles:
+      - prod
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    profiles:
+      - prod
 
 volumes:
   mongo-data:
+
+profiles:
+  dev:
+    # In development, React and Node.js will be run natively, so only MongoDB and LocalStack will be containerized.
+
+  prod:
+    # In production, all services including React and Node.js will be containerized.
