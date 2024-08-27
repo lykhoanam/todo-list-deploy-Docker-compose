@@ -38,7 +38,7 @@ cd todo-list-localstack-docker
 
 To launch this project, you have two options - run the app natively (without containers) or run everything in containers.
 
-## Option one - Run the app natively
+## Run the app natively
 
 ## Bring up LocalStack and Mongo containers
 
@@ -162,8 +162,4 @@ todos> db.todos.countDocuments()
 todos> 
 ```
 
-## Option two - Run everything in containers
 
-To run everything out of containers, you can leverage the Docker Compose configuration in the project.
-
-<tbd>
