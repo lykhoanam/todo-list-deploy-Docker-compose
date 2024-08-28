@@ -36,7 +36,6 @@ git clone https://github.com/ajeetraina/todo-list-localstack-docker
 cd todo-list-localstack-docker
 ```
 
-To launch this project, you have two options - run the app natively (without containers) or run everything in containers.
 
 ## Run the app natively
 
