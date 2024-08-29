@@ -37,7 +37,7 @@ pip install awscli-local
 git clone https://github.com/ajeetraina/todo-list-localstack-docker
 ```
 
-2. Navigate into the project.
+3. Navigate into the project.
 
 ```
 cd todo-list-localstack-docker
