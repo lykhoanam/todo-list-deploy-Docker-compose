@@ -24,7 +24,14 @@ This project contains the following components:
   
 ## Development
 
-1. Clone the repository
+1. Install awscli-local tool
+
+```
+pip install awscli-local
+```
+
+
+2. Clone the repository
 
 ```
 git clone https://github.com/ajeetraina/todo-list-localstack-docker
@@ -41,7 +48,7 @@ cd todo-list-localstack-docker
 
 ## Bring up LocalStack and Mongo containers
 
-To run the app natively, you will need to run LocalStack and Mongo using Docker Compose while run frontend and backend locally.
+To run the app natively, you will need to run LocalStack and Mongo using Docker Compose while running frontend and backend locally.
 
 ```
 docker compose up -d
@@ -67,53 +74,87 @@ docker compose up -d
 
 ## Add a Sample S3 Bucket
 
+By using the AWS CLI with LocalStack, you can interact with the emulated services exactly as you would with real AWS services. This helps ensure that your application behaves the same way in a local environment as it would in a production environment on AWS.
+
+
+Let’s create a new S3 bucket within the LocalStack environment:
+
+
 ```
-aws --endpoint-url=http://localhost:4566 s3 mb s3://mysamplebucket
+awslocal s3 mb s3://mysamplebucket
 ```
 
+The command `s3 mb s3://mysamplebucket` tells the AWS CLI to create a new S3 bucket (mb stands for "make bucket"). The bucket is named `mysamplebucket`
 It should show the following result:
 
 ```
 make_bucket: mysamplebucket
 ```
 
+## Connecting to LocalStack from a native-running app
+
+Now it’s time to connect your app to LocalStack. The index.js file, located in the backend/ directory, serves as the main entry point for the backend application.
+
+The code interacts with LocalStack’s S3 service, which is accessed via the endpoint defined by the S3_ENDPOINT_URL environment variable, typically set to http://localhost:4556 for local development.  
+
+The S3Client from the AWS SDK is configured to use this LocalStack endpoint, along with test credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY) that are also sourced from environment variables. This setup allows the application to perform operations on the locally simulated S3 service as if it were interacting with the real AWS S3, making the code flexible for different environments.
+
+The code uses multer and multer-s3 to handle file uploads. When a user uploads an image through the /upload route, the file is stored directly in the S3 bucket simulated by LocalStack. The bucket name is retrieved from the environment variable S3_BUCKET_NAME. Each uploaded file is given a unique name by appending the current timestamp to the original file name. The route then returns the URL of the uploaded file within the local S3 service, making it accessible just as it would be if hosted on a real AWS S3 bucket
+
+
 ## Bring up Backend
 
 ```
+cd backend/
 npm install
+
+```
+
+
+Rename the `.env.sample` file placed under the `backend/` directory to `.env`. 
+
+Please note that these are placeholders that LocalStack uses to simulate AWS credentials and not the real values.
+
+```
+AWS_ACCESS_KEY_ID=test
+AWS_SECRET_ACCESS_KEY=test
+S3_BUCKET_NAME=mysamplebucket
+S3_ENDPOINT_URL=http://localhost:4566
+AWS_REGION=us-east-1
+```
+
+Start the backend server:
+
+
+```
 node index.js
 ```
 
-```
-Server is running on port 5000
-Connected to MongoDB
-```
+You will see the message that the backend service has successfully started at port 5000.
+
+
 
 ## Start the frontend
 
 Open a new terminal and run the following command:
 
 ```
-npm start
+cd frontend/
+npm run dev
 ```
 
 By now, you should see the following message
 
 ```
-Compiled successfully!
+VITE v5.4.2  ready in 110 ms
 
-You can now view frontend in the browser.
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 
-  Local:            http://localhost:3000
-  On Your Network:  http://192.168.1.3:3000
-
-Note that the development build is not optimized.
-To create a production build, use npm run build.
-
-webpack compiled successfully
 ```
 
-## Try adding task and uploading the image
+## Try adding a task and uploading the image
 
 
 ![image](https://github.com/user-attachments/assets/55ca86c0-c83b-4f5e-83d2-0e87c97ba48a)
