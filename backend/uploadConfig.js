@@ -3,14 +3,14 @@ const multerS3 = require('multer-s3');
 const { S3Client } = require('@aws-sdk/client-s3');
 require('dotenv').config();
 
-// Configure the S3 client to point to LocalStack
+// Configure the S3 client to use environment variables
 const s3 = new S3Client({
-  region: 'us-east-1',
-  forcePathStyle: true,
-  endpoint: 'http://localhost:4566', // LocalStack S3 endpoint
+  region: process.env.AWS_REGION || 'us-east-1', // Default to 'us-east-1' if not provided
+  forcePathStyle: true, // Keep this for LocalStack compatibility
+  endpoint: process.env.S3_ENDPOINT_URL || 'https://s3.amazonaws.com', // Use the provided endpoint or default to AWS
   credentials: {
-    accessKeyId: 'test',
-    secretAccessKey: 'test',
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'default_access_key', // Default values for development
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'default_secret_key',
   },
 });
 

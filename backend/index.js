@@ -60,10 +60,10 @@ app.delete('/api/todos/:id', async (req, res) => {
 const s3 = new S3Client({
   region: 'us-east-1',
   forcePathStyle: true,
-  endpoint: 'http://localhost:4566', // LocalStack S3 endpoint
+  endpoint: process.env.S3_ENDPOINT_URL || 'https://s3.amazonaws.com', // Use the provided endpoint or default to AWS
   credentials: {
-    accessKeyId: 'test',
-    secretAccessKey: 'test',
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'default_access_key', // Default values for development
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'default_secret_key',  
   },
 });
 
