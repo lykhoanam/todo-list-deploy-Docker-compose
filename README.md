@@ -7,7 +7,8 @@ Notice: This sample repo is intended to support the guide mentioned above. As su
 
 ## Tech Stack
 
-<img width="827" alt="image" src="https://github.com/user-attachments/assets/b3a7ac49-eec5-4f6c-ac6a-eff19647b667">
+<img width="806" alt="image" src="https://github.com/user-attachments/assets/496c7685-87e9-4f87-aaa7-69e46a3c0b5a">
+
 
 
 
