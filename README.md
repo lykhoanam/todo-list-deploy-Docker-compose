@@ -46,7 +46,7 @@ cd todo-list-localstack-docker
 
 ## Run the app natively
 
-## Bring up LocalStack and Mongo containers
+## Bring up LocalStack 
 
 To run the app natively, you will need to run LocalStack and Mongo using Docker Compose while running frontend and backend locally.
 
@@ -54,14 +54,6 @@ To run the app natively, you will need to run LocalStack and Mongo using Docker 
 docker compose up -d
 ```
 
-```
-docker compose up -d
-[+] Running 4/4
- ✔ Network todo-container-supported_default      Created                           0.1s
- ✔ Volume "todo-container-supported_mongo-data"  Created                           0.0s
- ✔ Container mongo                               Started                           0.4s
- ✔ Container localstack                          Started                           0.3s
-```
 
 <img width="1307" alt="image" src="https://github.com/user-attachments/assets/d643f92c-c7e3-4ebe-a3c1-9288deb14083">
 
