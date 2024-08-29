@@ -103,9 +103,9 @@ npm install
 ```
 
 
-Rename the `.env.sample` file placed under the `backend/` directory to `.env`. 
-
 Please note that these are placeholders that LocalStack uses to simulate AWS credentials and not the real values.
+Hence, no changes are needed.
+
 
 ```
 AWS_ACCESS_KEY_ID=test
