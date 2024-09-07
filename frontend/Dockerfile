@@ -1,5 +1,5 @@
-# Use Node.js 18 as the base image
-FROM node:18
+# Use Node.js 22 as the base image
+FROM node:22
 
 # Set the working directory in the container
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the server port
-EXPOSE 5000
+EXPOSE 5173
 
 # Start the server
-CMD [ "node", "index.js" ]
+CMD [ "npm", "run", "dev" ]

@@ -10,8 +10,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/todos')
+// Connect to MongoDB using the environment variable
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('Error connecting to MongoDB:', error));
 
@@ -56,14 +56,14 @@ app.delete('/api/todos/:id', async (req, res) => {
   }
 });
 
-// Set up the S3 client to use LocalStack
+// Set up the S3 client to use LocalStack or AWS
 const s3 = new S3Client({
-  region: 'us-east-1',
+  region: process.env.AWS_REGION || 'us-east-1',
   forcePathStyle: true,
-  endpoint: process.env.S3_ENDPOINT_URL || 'https://s3.amazonaws.com', // Use the provided endpoint or default to AWS
+  endpoint: process.env.S3_ENDPOINT_URL || 'https://s3.amazonaws.com', // Use LocalStack or default AWS S3
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'default_access_key', // Default values for development
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'default_secret_key',  
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'default_access_key', // Default for development
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'default_secret_key',
   },
 });
 
@@ -71,9 +71,9 @@ const s3 = new S3Client({
 const upload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: process.env.S3_BUCKET_NAME, // Bucket name from .env file
+    bucket: process.env.S3_BUCKET_NAME, // Bucket name from environment variables
     key: function (req, file, cb) {
-      cb(null, Date.now().toString() + '-' + file.originalname); // Unique file name
+      cb(null, `${Date.now().toString()}-${file.originalname}`); // Unique file name
     },
   }),
   limits: { fileSize: 10 * 1024 * 1024 }, // 10 MB file size limit
