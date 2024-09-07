@@ -52,7 +52,7 @@ cd todo-list-localstack-docker
 To run the app natively, you will need to run LocalStack and Mongo using Docker Compose while running frontend and backend locally.
 
 ```
-docker compose up -d
+docker compose -f compose-native.yml up -d --build
 ```
 
 
@@ -113,6 +113,7 @@ AWS_ACCESS_KEY_ID=test
 AWS_SECRET_ACCESS_KEY=test
 S3_BUCKET_NAME=mysamplebucket
 S3_ENDPOINT_URL=http://localhost:4566
+MONGODB_URI=mongodb://mongodb:27017/todos
 AWS_REGION=us-east-1
 ```
 
