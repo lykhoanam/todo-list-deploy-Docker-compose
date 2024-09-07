@@ -84,7 +84,7 @@ It should show the following result:
 make_bucket: mysamplebucket
 ```
 
-## Connecting to LocalStack from a native-running app
+## Connecting to LocalStack from a non-containerised Node app
 
 Now it’s time to connect your app to LocalStack. The index.js file, located in the backend/ directory, serves as the main entry point for the backend application.
 
