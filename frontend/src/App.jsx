@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoList from './components/TodoList';
-import ImageUpload from './components/ImageUpload'; // Import the new ImageUpload component
 import './App.css';
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
       </header>
       <main>
         <TodoList />
-        <ImageUpload /> {/* Add the ImageUpload component here */}
       </main>
       <footer>
         <p>&copy; 2024 My To-Do App</p>

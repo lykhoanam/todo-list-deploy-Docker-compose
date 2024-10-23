@@ -26,20 +26,33 @@ const TodoList = () => {
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <input
+    <div class="container">
+        <div class="header">
+            <h1>TODO</h1>
+            <div class="tabs">
+                <div class="active">Personal</div>
+                <div>Professional</div>
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" placeholder="What do you need to do?" value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}/>
+            <button onClick={addTodo}>Add Todo</button>
+        </div>
+      {/* <input
         type="text"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
       />
-      <button onClick={addTodo}>Add Todo</button>
+      <button onClick={addTodo}>Add Todo</button> */}
       <div>
         {todos.map(todo => (
           <TodoItem key={todo._id} todo={todo} onDelete={deleteTodo} />
         ))}
       </div>
     </div>
+
+    
   );
 };
 

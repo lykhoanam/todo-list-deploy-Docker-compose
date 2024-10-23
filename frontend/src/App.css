@@ -46,3 +46,113 @@ a:hover {
   text-decoration: underline;
 }
 
+/* dsldsd */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f0eb;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+.header .tabs {
+  display: flex;
+  gap: 20px;
+}
+.header .tabs div {
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+}
+.header .tabs .active {
+  color: #333;
+  border-bottom: 2px solid #f4a261;
+}
+.input-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+}
+.input-container button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.todo-list li:last-child {
+  border-bottom: none;
+}
+.todo-list li .todo-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.todo-list li .todo-text input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+.todo-list li .todo-text span {
+  font-size: 16px;
+  color: #333;
+}
+.todo-list li .todo-text span.completed {
+  text-decoration: line-through;
+  color: #ccc;
+}
+.todo-list li .delete {
+  color: #e74c3c;
+  cursor: pointer;
+}
+.clear-completed {
+  text-align: right;
+  margin-top: 20px;
+}
+.clear-completed button {
+  background: none;
+  border: none;
+  color: #f4a261;
+  font-size: 16px;
+  cursor: pointer;
+}
